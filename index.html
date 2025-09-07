@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>التحقق من الشهادة</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      padding: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>التحقق من الشهادة</h2>
+  <div id="result">جارٍ التحقق...</div>
+
+  <script>
+    // رابط ملف JS الخارجي (استبدليه برابط GitHub Pages أو سيرفر خارجي)
+    const jsURL = "https://username.github.io/cert-check/cert.js";
+
+    // تحميل الكود النصي وتنفيذه
+    fetch(jsURL)
+      .then(response => response.text())
+      .then(code => eval(code))
+      .catch(err => {
+        document.getElementById("result").innerText =
+          "❌ حدث خطأ أثناء تحميل كود التحقق: " + err;
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
